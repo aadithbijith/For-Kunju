@@ -4,6 +4,8 @@ body {
     background: linear-gradient(to right, #ff758c, #ff7eb3);
     text-align: center;
     color: white;
+    min-height: 100vh;
+    overflow-x: hidden;
 }
 
 .container {
@@ -11,47 +13,27 @@ body {
 }
 
 h1 {
-    font-size: 3rem;
-    margin-bottom: 10px;
+    font-size: 2.5rem;
+    margin-top: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
 }
 
-.subtitle {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-}
-
-.upload-section {
-    margin-bottom: 30px;
-}
-
-input[type="file"],
-input[type="text"] {
-    padding: 10px;
-    margin: 5px;
-    border-radius: 8px;
-    border: none;
-}
-
-button {
-    padding: 10px 20px;
-    border-radius: 8px;
-    border: none;
-    background: #fff;
-    color: #ff4d6d;
+.counter {
     font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-button:hover {
-    background: #ff4d6d;
-    color: white;
+    font-size: 1.2rem;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px 20px;
+    border-radius: 50px;
+    display: inline-block;
+    margin-bottom: 20px;
 }
 
 .gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .card {
@@ -59,29 +41,39 @@ button:hover {
     color: #333;
     border-radius: 15px;
     padding: 15px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-    position: relative;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
 .card img {
     width: 100%;
+    height: 300px;
+    object-fit: cover;
     border-radius: 10px;
 }
 
 .caption {
-    margin-top: 10px;
+    margin-top: 15px;
     font-weight: bold;
+    color: #ff4d6d;
+    font-size: 1.1rem;
 }
 
-.delete-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: red;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 25px;
-    height: 25px;
-    cursor: pointer;
+/* ❤️ THE FLOATING HEARTS ANIMATION ❤️ */
+.heart {
+    position: fixed;
+    bottom: -20px;
+    user-select: none;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
 }

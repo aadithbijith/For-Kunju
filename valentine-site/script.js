@@ -1,146 +1,52 @@
-<script>
+// 🌹 1. UPDATE YOUR DATE HERE
+const anniversaryDate = new Date("2024-12-31");
 
-// 🌹 CHANGE THIS DATE
-const anniversaryDate = new Date("2023-02-14");
+// 📸 2. LIST YOUR IMAGES HERE (Must match your GitHub 'images' folder)
+const memories = [
+    { image: 'images/57F5B90C-3B04-4C0F-9CC7-C8D4898C2899_1_105_c.jpeg', caption: 'The first day ❤️' },
+    { image: 'images/281B29E7-5551-4CCB-BDB3-FAE169C39F05_1_105_c.jpeg', caption: 'Our favorite date night 🌸' },
+    { image: 'images/6673C7A7-5983-4879-AC94-051B696A9121.jpeg', caption: 'Forever to go!' }
+];
 
+// Anniversary Counter Logic
 function updateCounter() {
     const today = new Date();
     const diffTime = today - anniversaryDate;
     const days = Math.floor(diffTime / (1000 * 60 * 60 * 24));
     document.getElementById("daysTogether").innerText =
-        "We have been together for " + days + " beautiful days 💕";
-}
-updateCounter();
-
-let memories = JSON.parse(localStorage.getItem("memories")) || [];
-const MAX_MEMORIES = 12; // Limit total memories
-
-function saveMemories() {
-    try {
-        localStorage.setItem("memories", JSON.stringify(memories));
-    } catch (e) {
-        alert("Storage full 😢 Try deleting some memories.");
-    }
+        "Together for " + days + " beautiful days 💕";
 }
 
+// Gallery Generation
 function displayMemories() {
     const gallery = document.getElementById("gallery");
-    gallery.innerHTML = "";
-
-    memories.forEach((memory, index) => {
+    memories.forEach(memory => {
         const card = document.createElement("div");
         card.className = "card";
-
         card.innerHTML = `
             <img src="${memory.image}">
             <div class="caption">${memory.caption}</div>
-            <button onclick="deleteMemory(${index})" style="margin-top:5px;background:#ff4d6d;color:white;border:none;padding:5px 10px;border-radius:5px;cursor:pointer;">Delete</button>
         `;
-
         gallery.appendChild(card);
     });
 }
 
-function deleteMemory(index) {
-    memories.splice(index, 1);
-    saveMemories();
-    displayMemories();
-}
-
-// 📦 Image Compression Function
-function compressImage(file, callback) {
-    const reader = new FileReader();
-
-    reader.onload = function (event) {
-        const img = new Image();
-        img.onload = function () {
-
-            const canvas = document.createElement("canvas");
-            const MAX_WIDTH = 800; // Resize width
-            const scaleSize = MAX_WIDTH / img.width;
-
-            canvas.width = MAX_WIDTH;
-            canvas.height = img.height * scaleSize;
-
-            const ctx = canvas.getContext("2d");
-            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-
-            // Compress to 0.7 quality JPEG
-            const compressedDataUrl = canvas.toDataURL("image/jpeg", 0.7);
-            callback(compressedDataUrl);
-        };
-
-        img.src = event.target.result;
-    };
-
-    reader.readAsDataURL(file);
-}
-
-function addMemory() {
-    const imageInput = document.getElementById("imageInput");
-    const captionInput = document.getElementById("captionInput");
-
-    const file = imageInput.files[0];
-    const caption = captionInput.value.trim();
-
-    if (!file) {
-        alert("Please select a photo ❤️");
-        return;
-    }
-
-    if (caption === "") {
-        alert("Write something sweet 💕");
-        return;
-    }
-
-    if (memories.length >= MAX_MEMORIES) {
-        alert("Maximum memories reached 💕 Delete one to add more.");
-        return;
-    }
-
-    // iPhone Safari fix: delay compression slightly
-    setTimeout(() => {
-        compressImage(file, function (compressedImage) {
-
-            memories.push({
-                image: compressedImage,
-                caption: caption
-            });
-
-            saveMemories();
-            displayMemories();
-
-            imageInput.value = "";
-            captionInput.value = "";
-
-        });
-    }, 100);
-}
-
-displayMemories();
-
-// 💖 Clear All Button
-function clearAllMemories() {
-    if (confirm("Are you sure you want to clear all memories? 💔")) {
-        memories = [];
-        saveMemories();
-        displayMemories();
-    }
-}
-
-// ✨ Floating Hearts
+// ❤️ Floating Hearts Logic
 function createHeart() {
     const heart = document.createElement("div");
     heart.className = "heart";
     heart.innerHTML = "❤️";
     heart.style.left = Math.random() * 100 + "vw";
     heart.style.fontSize = (Math.random() * 20 + 10) + "px";
-    heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
-    document.body.appendChild(heart);
 
-    setTimeout(() => heart.remove(), 6000);
+    const duration = Math.random() * 3 + 3;
+    heart.style.animation = `floatUp ${duration}s linear forwards`;
+
+    document.body.appendChild(heart);
+    setTimeout(() => { heart.remove(); }, duration * 1000);
 }
 
+// Run everything
+updateCounter();
+displayMemories();
 setInterval(createHeart, 600);
-
-</script>
