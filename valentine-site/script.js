@@ -3,9 +3,16 @@ const anniversaryDate = new Date("2024-12-31");
 
 // 📸 2. LIST YOUR IMAGES HERE (Must match your GitHub 'images' folder)
 const memories = [
-    { image: 'images/57F5B90C-3B04-4C0F-9CC7-C8D4898C2899_1_105_c.jpeg', caption: 'The first day ❤️' },
-    { image: 'images/281B29E7-5551-4CCB-BDB3-FAE169C39F05_1_105_c.jpeg', caption: 'Our favorite date night 🌸' },
-    { image: 'images/6673C7A7-5983-4879-AC94-051B696A9121.jpeg', caption: 'Forever to go!' }
+    { image: 'images/photo3.jpeg', caption: 'The first flight ❤️' },
+    { image: 'images/photo9.jpeg', caption: 'Our first date night 🌸' },
+    { image: 'images/photo10.jpeg', caption: 'Best Clubbing time ever !' },
+    { image: 'images/photo7.jpeg', caption: 'My favourite 💕' },
+    { image: 'images/photo5.jpeg', caption: 'Sun kisseddd' },
+    { image: 'images/photo11.jpeg', caption: 'Travelled soo far just to meet for few hours' },
+    { image: 'images/photo12.jpeg', caption: 'Long Distance 😭' },
+    { image: 'images/photo13.jpeg', caption: 'Awkward poses 😂' }
+
+
 ];
 
 // Anniversary Counter Logic

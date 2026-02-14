@@ -44,13 +44,23 @@ h1 {
     box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
-.card img {
+/*.card img {
     width: 100%;
     height: 300px;
     object-fit: cover;
+    object-position: center center;
     border-radius: 10px;
-}
+    display: block;
+}*/
 
+.card img {
+    width: 100%;
+    height: 300px;
+    object-fit: contain; /* Shrinks the photo until the whole thing fits */
+    background-color: #fafafa; /* Adds a soft background if the photo doesn't fill the space */
+    border-radius: 10px;
+    display: block;
+}
 .caption {
     margin-top: 15px;
     font-weight: bold;
