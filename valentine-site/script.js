@@ -1,7 +1,7 @@
 // 🌹 1. UPDATE YOUR DATE HERE
 
 // --- NEW PASSWORD LOGIC ---
-const SECRET_PASSWORD = "31122025"; // Set your password here
+const SECRET_PASSWORD = "31122024"; // Set your password here
 
 function checkPassword() {
     const input = document.getElementById("passwordInput").value.toLowerCase();
