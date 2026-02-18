@@ -44,14 +44,6 @@ h1 {
     box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
-/*.card img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    object-position: center center;
-    border-radius: 10px;
-    display: block;
-}*/
 
 .card img {
     width: 100%;
@@ -86,4 +78,105 @@ h1 {
         transform: translateY(-110vh) rotate(360deg);
         opacity: 0;
     }
+}
+/* --- PRETTY PASSWORD SCREEN --- */
+.login-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.login-box {
+    background: rgba(255, 255, 255, 0.9); /* Slight transparency */
+    backdrop-filter: blur(10px); /* Blurs what's behind it */
+    padding: 40px 30px;
+    border-radius: 25px;
+    text-align: center;
+    width: 85%;
+    max-width: 350px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    animation: fadeInScale 0.6s ease-out; /* Smooth pop-in */
+}
+
+.heart-icon {
+    font-size: 40px;
+    margin-bottom: 10px;
+    animation: pulse 1.5s infinite;
+}
+
+.login-box h2 {
+    color: #ff4d6d;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+}
+
+.login-box p {
+    color: #888;
+    font-size: 0.9rem;
+    margin-bottom: 25px;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 12px 0;
+    margin-bottom: 20px;
+    border: none;
+    border-bottom: 2px solid #ffb3c6; /* Elegant bottom-only border */
+    background: transparent;
+    text-align: center;
+    font-size: 1.1rem;
+    color: #333;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.login-box input:focus {
+    border-bottom-color: #ff4d6d;
+}
+
+.login-box button {
+    background: #ff4d6d;
+    color: white;
+    border: none;
+    padding: 14px 25px;
+    border-radius: 50px; /* Rounded pill shape */
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 100%;
+    box-shadow: 0 5px 15px rgba(255, 77, 109, 0.3);
+    transition: transform 0.2s, background 0.3s;
+}
+
+.login-box button:hover {
+    background: #ff758c;
+    transform: translateY(-2px);
+}
+
+/* Animations */
+@keyframes fadeInScale {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+.error-msg {
+    color: #d90429;
+    font-weight: bold;
+    margin-top: 15px;
+    font-size: 0.9rem;
+    display: none; /* This is the key! */
 }

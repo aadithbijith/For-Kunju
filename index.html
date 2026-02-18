@@ -7,13 +7,24 @@
     <link rel="stylesheet" href="valentine-site/style.css">
 </head>
 <body>
+<div id="loginScreen" class="login-screen">
+    <div class="login-box">
+        <div class="heart-icon">❤️</div>
+        <h2>Our Secret Vault 🔒</h2>
+        <p>Enter the password</p>
+        <div class="input-group">
+            <input type="password" id="passwordInput" placeholder="Password...">
+        </div>
+        <button onclick="checkPassword()">Unlock 👌</button>
+        <p id="errorMessage" class="error-msg" style="display: none;">That's not it, try again baby! 🥺</p>    </div>
+</div>
 
-<div class="container">
-    <h1>Happy Valentine's Day ❤️</h1>
-    <div class="counter" id="daysTogether">Calculating our time...</div>
-    <p class="subtitle">Our Beautiful Memories Together</p>
-
-    <div class="gallery" id="gallery">
+<div id="mainContent" style="display: none;">
+    <div class="container">
+        <h1>Happy Valentine's Day ❤️</h1>
+        <div class="counter" id="daysTogether">Calculating our time...</div>
+        <p class="subtitle">Our Beautiful Memories Together</p>
+        <div class="gallery" id="gallery"></div>
     </div>
 </div>
 

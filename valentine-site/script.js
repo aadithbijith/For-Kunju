@@ -1,4 +1,27 @@
 // 🌹 1. UPDATE YOUR DATE HERE
+
+// --- NEW PASSWORD LOGIC ---
+const SECRET_PASSWORD = "31122025"; // Set your password here
+
+function checkPassword() {
+    const input = document.getElementById("passwordInput").value.toLowerCase();
+    const errorMessage = document.getElementById("errorMessage");
+
+   if (input === SECRET_PASSWORD.toLowerCase()) {
+           // Success logic
+           document.getElementById("loginScreen").style.display = "none";
+           document.getElementById("mainContent").style.display = "block";
+       } else {
+           // This is the line that makes it show up!
+           errorMessage.style.display = "block";
+
+           // Optional: Clear the wrong password so she can try again
+           document.getElementById("passwordInput").value = "";
+       }
+}
+// --- END NEW LOGIC ---
+
+// ... YOUR EXISTING CODE STARTS HERE (anniversaryDate, memories, etc.) ...
 const anniversaryDate = new Date("2024-12-31");
 
 // 📸 2. LIST YOUR IMAGES HERE (Must match your GitHub 'images' folder)
